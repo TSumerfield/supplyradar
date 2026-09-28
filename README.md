@@ -32,3 +32,27 @@ The next meaningful signal is a supplier asking to receive the Radar regularly o
 - GitHub source control
 - Vercel hosting
 - Domain: supplyradar.co.uk
+
+
+## Care-provider opportunity experiment
+
+SupplyRadar also runs a bounded validation experiment for UK homecare and supported-living procurement.
+
+The experiment tests whether public procurement signals can be matched to specific smaller care providers early and accurately enough to create commercial value.
+
+Flow:
+
+`LIVE CARE TENDERS -> PROVIDER FIT -> ELIGIBILITY -> PURSUE / INVESTIGATE / PREPARE / IGNORE -> HUMAN REVIEW`
+
+This is not a separate brand or product. No provider outreach, bid submission, paid tooling, domain purchase, or customer contact is authorised by this experiment.
+
+### Pre-test gate
+
+A run only passes the pre-test when it produces:
+- at least 20 real candidate providers;
+- 5-10 genuinely live relevant tenders;
+- evidence-backed provider-to-tender matches;
+- enough lead time for a provider to act;
+- source provenance for every material claim.
+
+Only a passed pre-test can be considered for a willingness-to-pay test.
