@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SupplyRadar — Buyer Signal Radar</title>
+<style>
+:root{--ink:#071a15;--green:#18a36f;--signal:#58d9a3;--paper:#f5f7f2;--white:#fff;--muted:#61706a;--line:#d9e2dc;--red:#b4493f;--amber:#a76d10}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{width:min(1380px,94vw);margin:auto}.top{padding:26px 0 18px;border-bottom:1px solid var(--line);display:flex;align-items:end;justify-content:space-between;gap:20px}.eyebrow{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-weight:850}.top h1{font-size:34px;letter-spacing:-.045em;margin:5px 0 0}.top p{margin:0;color:var(--muted);font-size:13px}.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:22px 0}.metric{background:white;padding:18px}.metric span{display:block;font-size:10px;letter-spacing:.08em;color:var(--muted);font-weight:800}.metric b{font-size:28px;letter-spacing:-.04em}.bar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:16px}.bar input,.bar select{border:1px solid var(--line);background:white;padding:10px 12px;border-radius:8px;color:var(--ink)}.bar input{min-width:260px}.tablewrap{overflow:auto;background:white;border:1px solid var(--line)}table{width:100%;border-collapse:collapse;min-width:1100px}th{text-align:left;font-size:9px;letter-spacing:.09em;color:var(--muted);padding:12px;border-bottom:1px solid var(--line);background:#fbfcfa}td{padding:13px 12px;border-bottom:1px solid #edf1ee;font-size:12px;vertical-align:top}.score{font-weight:900;font-size:18px}.hot{color:var(--green)}.warm{color:var(--amber)}.cold{color:var(--red)}.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:4px 7px;font-size:9px;font-weight:800;background:var(--paper)}.status{font-weight:850}.title{font-weight:800;max-width:290px}.source a{color:var(--green);font-weight:750;text-decoration:none}.note{padding:18px 0 34px;color:var(--muted);font-size:11px;line-height:1.6}.empty{text-align:center;padding:40px;color:var(--muted)}
+@media(max-width:760px){.metrics{grid-template-columns:1fr 1fr}.top{align-items:start;flex-direction:column}.bar input{min-width:100%;width:100%}}
+</style></head>
+<body><main class="wrap">
+<div class="top"><div><div class="eyebrow">Internal / acquisition</div><h1>Buyer Signal Radar</h1></div><p>100 signals → 10 qualified → 3 Supply Checks → 1 transaction</p></div>
+<div class="metrics"><div class="metric"><span>SIGNALS</span><b id="mSignals">0</b></div><div class="metric"><span>80+ SCORE</span><b id="mHot">0</b></div><div class="metric"><span>CONTACTABLE</span><b id="mContact">0</b></div><div class="metric"><span>BRIEFS</span><b id="mBrief">0</b></div><div class="metric"><span>SUPPLY CHECKS</span><b id="mChecks">0</b></div></div>
+<div class="bar"><input id="q" placeholder="Search buyer, requirement, category…"><select id="status"><option value="">All states</option><option>NEW</option><option>QUALIFIED</option><option>CONTACT</option><option>BRIEF</option><option>SUPPLY CHECK</option><option>QUOTE</option><option>WON</option><option>REJECT</option></select><select id="min"><option value="0">Any score</option><option value="60">60+</option><option value="70">70+</option><option value="80">80+</option></select></div>
+<div class="tablewrap"><table><thead><tr><th>SCORE</th><th>BUYER SIGNAL</th><th>CATEGORY</th><th>BUDGET / SPEND</th><th>REPEAT</th><th>CHINA FIT</th><th>CONTACT</th><th>STATE</th><th>SOURCE</th></tr></thead><tbody id="rows"></tbody></table></div>
+<div class="note">Score is a triage device, not truth. It rewards recency, explicit purchase intent, meaningful budget/spend, repeat potential, China fit, contactability and manageable compliance. High scores trigger human review before supplier work. Source data lives in <code>signals.json</code> so this surface stays lightweight and auditable.</div>
+</main>
+<script>
+let data=[];
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function render(){
+ const q=document.getElementById("q").value.toLowerCase(),st=document.getElementById("status").value,min=+document.getElementById("min").value;
+ const filtered=data.filter(x=>(!q||JSON.stringify(x).toLowerCase().includes(q))&&(!st||x.status===st)&&x.score>=min).sort((a,b)=>b.score-a.score);
+ document.getElementById("rows").innerHTML=filtered.length?filtered.map(x=>{let cls=x.score>=80?"hot":x.score>=65?"warm":"cold";return '<tr><td><span class="score '+cls+'">'+x.score+'</span></td><td><div class="title">'+esc(x.title)+'</div><div style="color:var(--muted);margin-top:4px">'+esc(x.buyer)+'</div></td><td><span class="tag">'+esc(x.category)+'</span></td><td>'+esc(x.budget)+'</td><td>'+esc(x.repeat)+'</td><td>'+esc(x.chinaFit)+'</td><td>'+esc(x.contactability)+'</td><td><span class="status">'+esc(x.status)+'</span></td><td class="source"><a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.source)+' ↗</a></td></tr>'}).join(""):'<tr><td colspan="9" class="empty">No matching signals.</td></tr>';
+ document.getElementById("mSignals").textContent=data.length;
+ document.getElementById("mHot").textContent=data.filter(x=>x.score>=80).length;
+ document.getElementById("mContact").textContent=data.filter(x=>/high|direct/i.test(x.contactability)).length;
+ document.getElementById("mBrief").textContent=data.filter(x=>["BRIEF","SUPPLY CHECK","QUOTE","WON"].includes(x.status)).length;
+ document.getElementById("mChecks").textContent=data.filter(x=>["SUPPLY CHECK","QUOTE","WON"].includes(x.status)).length;
+}
+fetch("signals.json",{cache:"no-store"}).then(r=>r.json()).then(x=>{data=x;render()}).catch(()=>{document.getElementById("rows").innerHTML='<tr><td colspan="9" class="empty">Could not load signals.json</td></tr>'});
+["q","status","min"].forEach(id=>document.getElementById(id).addEventListener(id==="q"?"input":"change",render));
+</script></body></html>
