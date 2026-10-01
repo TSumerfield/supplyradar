@@ -1,28 +1,22 @@
-name: Build Buyer Signal Radar
+name: Verify Buyer Signal Radar
 
 on:
   push:
     paths:
       - "raw-signals.json"
+      - "signals.json"
       - "scripts/build-signals.js"
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
-  build:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - run: node scripts/build-signals.js
-      - name: Commit generated radar data
-        run: |
-          git config user.name "SupplyRadar Bot"
-          git config user.email "actions@users.noreply.github.com"
-          git add signals.json
-          git diff --cached --quiet || git commit -m "Compile buyer signals"
-          git push
+      - name: Rebuild radar data
+        run: node scripts/build-signals.js
+      - name: Verify generated data is committed
+        run: git diff --exit-code -- signals.json
