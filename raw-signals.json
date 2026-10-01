@@ -16,7 +16,9 @@
     "contactLabel": "High — Upwork application",
     "compliance": "medium",
     "status": "NEW",
-    "budgetTier": "medium"
+    "budgetTier": "medium",
+    "commercialValue": "medium",
+    "decisionReason": "Explicit recurring sourcing demand with direct contact route; useful validation but lower transaction value."
   },
   {
     "title": "Recurring manufacturer matching for China-made products",
@@ -35,7 +37,9 @@
     "contactLabel": "High — Upwork application",
     "compliance": "low",
     "status": "NEW",
-    "budgetTier": "small"
+    "budgetTier": "small",
+    "commercialValue": "medium",
+    "decisionReason": "Explicit recurring sourcing demand with direct contact route; useful validation but lower transaction value."
   },
   {
     "title": "China product research + sourcing partner",
@@ -54,6 +58,8 @@
     "contactLabel": "High — Upwork application",
     "compliance": "medium",
     "status": "CONTACT",
-    "budgetTier": "large"
+    "budgetTier": "large",
+    "commercialValue": "high",
+    "decisionReason": "Meaningful committed stock budget, explicit China sourcing brief and repeat potential."
   }
 ]
