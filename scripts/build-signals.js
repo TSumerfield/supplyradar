@@ -3,8 +3,9 @@ const raw=JSON.parse(fs.readFileSync("raw-signals.json","utf8"));
 const clamp=n=>Math.max(0,Math.min(100,n));
 function score(x){
  let s=0; const age=x.ageDays??30;
- s+=age<=2?20:age<=7?16:age<=30?9:3;
- s+=x.explicitIntent?20:0; s+=x.budgetKnown?10:0;
+ s+=age<=2?15:age<=7?12:age<=30?7:2;
+ s+=x.explicitIntent?15:0;
+ s+=x.budgetTier==="large"?20:x.budgetTier==="medium"?14:x.budgetTier==="small"?6:(x.budgetKnown?5:0);
  s+=x.repeatPotential==="high"?15:x.repeatPotential==="medium"?8:2;
  s+=x.chinaFit==="very high"?15:x.chinaFit==="high"?11:x.chinaFit==="medium"?5:0;
  s+=x.contactability==="high"?10:x.contactability==="medium"?5:0;
