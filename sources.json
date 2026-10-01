@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "policy": "Collect declared buyer intent, not generic company leads.",
+  "sources": [
+    {
+      "id": "upwork",
+      "type": "marketplace",
+      "priority": "high",
+      "queries": [
+        "China sourcing agent UK",
+        "product sourcing China manufacturer",
+        "procurement China supplier"
+      ],
+      "notes": "High explicit intent; platform contact required."
+    },
+    {
+      "id": "reddit",
+      "type": "community",
+      "priority": "medium",
+      "queries": [
+        "looking for China sourcing agent",
+        "supplier China UK MOQ",
+        "replace Chinese supplier"
+      ],
+      "notes": "Use only posts with concrete purchasing/sourcing intent."
+    },
+    {
+      "id": "freelancer",
+      "type": "marketplace",
+      "priority": "medium",
+      "queries": [
+        "China sourcing purchasing agent",
+        "supplier sourcing manufacturer China"
+      ],
+      "notes": "Prefer repeat procurement and defined products."
+    },
+    {
+      "id": "uk-procurement",
+      "type": "public-procurement",
+      "priority": "medium",
+      "queries": [
+        "physical goods procurement awards merchandise packaging equipment"
+      ],
+      "notes": "Primarily category/buyer intelligence; reject installation-heavy and framework-heavy work for first transactions."
+    }
+  ],
+  "reject": [
+    "generic dropshipping ideas",
+    "no declared buying intent",
+    "food/pharma",
+    "high-liability regulated products",
+    "installation-heavy contracts",
+    "tiny uneconomic orders",
+    "counterfeit/IP-risk requests"
+  ]
+}
