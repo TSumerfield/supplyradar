@@ -1,19 +1,6 @@
 [
   {
     "score": 100,
-    "title": "Example: custom branded product requirement",
-    "buyer": "Example UK buyer",
-    "category": "Custom products",
-    "budget": "£8k stated",
-    "repeat": "High",
-    "chinaFit": "very high",
-    "contactability": "High — direct buyer route",
-    "status": "NEW",
-    "source": "Example feed",
-    "url": "https://example.com/buyer-request-1"
-  },
-  {
-    "score": 100,
     "title": "Recurring manufacturer matching for China-made products",
     "buyer": "Swedish commercial buyer",
     "category": "Multi-category manufacturing",
@@ -40,19 +27,6 @@
   },
   {
     "score": 91,
-    "title": "Long-term 1688 sourcing partner",
-    "buyer": "UK builder's merchant",
-    "category": "Building / larger products",
-    "budget": "Hundreds–thousands units / month stated",
-    "repeat": "Very high",
-    "chinaFit": "Very high",
-    "contactability": "Direct — Reddit thread",
-    "status": "CONTACT",
-    "source": "Reddit",
-    "url": "https://www.reddit.com/r/1688/comments/1wawzyd/looking_for_a_reliable_1688_sourcing_agent_for/"
-  },
-  {
-    "score": 91,
     "title": "Import products from China to UK for resale",
     "buyer": "UK importer / reseller",
     "category": "Multi-category import",
@@ -63,83 +37,5 @@
     "status": "NEW",
     "source": "Upwork",
     "url": "https://www.upwork.com/freelance-jobs/apply/Sourcing-Agent-China_~022096882198009454936/"
-  },
-  {
-    "score": 88,
-    "title": "China sourcing & purchasing partner",
-    "buyer": "Established European company",
-    "category": "100+ product catalogue",
-    "budget": "Ongoing purchasing",
-    "repeat": "Very high",
-    "chinaFit": "Very high",
-    "contactability": "High — job application",
-    "status": "CONTACT",
-    "source": "Freelancer",
-    "url": "https://www.freelancer.co.uk/jobs/sourcing/"
-  },
-  {
-    "score": 82,
-    "title": "Low-MOQ custom folding boxes",
-    "buyer": "UK packaging buyer",
-    "category": "Packaging",
-    "budget": "500 units → 5,000 / run",
-    "repeat": "High potential",
-    "chinaFit": "High",
-    "contactability": "Direct — Reddit thread",
-    "status": "QUALIFIED",
-    "source": "Reddit",
-    "url": "https://www.reddit.com/r/smallbusinessuk/"
-  },
-  {
-    "score": 81,
-    "title": "Back-to-school retail procurement",
-    "buyer": "UK retail buyer",
-    "category": "Bags / stationery / accessories",
-    "budget": "£5k stated",
-    "repeat": "Medium",
-    "chinaFit": "Very high",
-    "contactability": "High — job application",
-    "status": "QUALIFIED",
-    "source": "SkillVault",
-    "url": "https://skillvault.online/"
-  },
-  {
-    "score": 78,
-    "title": "Independent China-side factory / QC partner",
-    "buyer": "UK Amazon kitchenware founder",
-    "category": "Kitchenware",
-    "budget": "Funded launch; 2 manufacturers shortlisted",
-    "repeat": "High if launch works",
-    "chinaFit": "High",
-    "contactability": "Direct — Reddit thread",
-    "status": "QUALIFIED",
-    "source": "Reddit",
-    "url": "https://www.reddit.com/r/FulfillmentByAmazon/"
-  },
-  {
-    "score": 76,
-    "title": "Replace current China supplier",
-    "buyer": "UK ecommerce buyer",
-    "category": "Consumer goods",
-    "budget": "~£15k/month stated",
-    "repeat": "Very high",
-    "chinaFit": "Very high",
-    "contactability": "Direct — Reddit thread",
-    "status": "QUALIFIED",
-    "source": "Reddit",
-    "url": "https://www.reddit.com/r/dropshipping/"
-  },
-  {
-    "score": 72,
-    "title": "Custom automotive plastic product",
-    "buyer": "Commercial buyer",
-    "category": "Custom plastics",
-    "budget": "Not stated",
-    "repeat": "Unknown",
-    "chinaFit": "High",
-    "contactability": "High — job application",
-    "status": "QUALIFIED",
-    "source": "Freelancer",
-    "url": "https://www.freelancer.co.uk/jobs/supplier-sourcing/"
   }
 ]
