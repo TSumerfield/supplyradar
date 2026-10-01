@@ -15,7 +15,8 @@
     "contactability": "high",
     "contactLabel": "High — Upwork application",
     "compliance": "medium",
-    "status": "NEW"
+    "status": "NEW",
+    "budgetTier": "medium"
   },
   {
     "title": "Recurring manufacturer matching for China-made products",
@@ -33,7 +34,8 @@
     "contactability": "high",
     "contactLabel": "High — Upwork application",
     "compliance": "low",
-    "status": "NEW"
+    "status": "NEW",
+    "budgetTier": "small"
   },
   {
     "title": "China product research + sourcing partner",
@@ -51,6 +53,7 @@
     "contactability": "high",
     "contactLabel": "High — Upwork application",
     "compliance": "medium",
-    "status": "CONTACT"
+    "status": "CONTACT",
+    "budgetTier": "large"
   }
 ]
