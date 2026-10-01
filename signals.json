@@ -1,18 +1,5 @@
 [
   {
-    "score": 100,
-    "title": "Recurring manufacturer matching for China-made products",
-    "buyer": "Swedish commercial buyer",
-    "category": "Multi-category manufacturing",
-    "budget": "$200 per successful factory match",
-    "repeat": "Regular new-product sourcing",
-    "chinaFit": "very high",
-    "contactability": "High — Upwork application",
-    "status": "NEW",
-    "source": "Upwork",
-    "url": "https://www.upwork.com/freelance-jobs/apply/Sourcing-Agent_~022099145918323936761/"
-  },
-  {
     "score": 95,
     "title": "China product research + sourcing partner",
     "buyer": "UK entrepreneur",
@@ -26,7 +13,7 @@
     "url": "https://www.upwork.com/freelance-jobs/apply/China-Based-Product-Research-Sourcing-Agent-Focus-International-Opportunities_~022104866720299951136/"
   },
   {
-    "score": 91,
+    "score": 86,
     "title": "Import products from China to UK for resale",
     "buyer": "UK importer / reseller",
     "category": "Multi-category import",
@@ -37,5 +24,18 @@
     "status": "NEW",
     "source": "Upwork",
     "url": "https://www.upwork.com/freelance-jobs/apply/Sourcing-Agent-China_~022096882198009454936/"
+  },
+  {
+    "score": 86,
+    "title": "Recurring manufacturer matching for China-made products",
+    "buyer": "Swedish commercial buyer",
+    "category": "Multi-category manufacturing",
+    "budget": "$200 per successful factory match",
+    "repeat": "Regular new-product sourcing",
+    "chinaFit": "very high",
+    "contactability": "High — Upwork application",
+    "status": "NEW",
+    "source": "Upwork",
+    "url": "https://www.upwork.com/freelance-jobs/apply/Sourcing-Agent_~022099145918323936761/"
   }
 ]
