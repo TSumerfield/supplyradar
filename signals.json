@@ -13,14 +13,27 @@
     "url": "https://example.com/buyer-request-1"
   },
   {
-    "score": 94,
+    "score": 100,
+    "title": "Recurring manufacturer matching for China-made products",
+    "buyer": "Swedish commercial buyer",
+    "category": "Multi-category manufacturing",
+    "budget": "$200 per successful factory match",
+    "repeat": "Regular new-product sourcing",
+    "chinaFit": "very high",
+    "contactability": "High — Upwork application",
+    "status": "NEW",
+    "source": "Upwork",
+    "url": "https://www.upwork.com/freelance-jobs/apply/Sourcing-Agent_~022099145918323936761/"
+  },
+  {
+    "score": 95,
     "title": "China product research + sourcing partner",
     "buyer": "UK entrepreneur",
-    "category": "Multi-category",
+    "category": "Multi-category ecommerce",
     "budget": "£10k–£30k initial stock",
-    "repeat": "High if validated",
-    "chinaFit": "Very high",
-    "contactability": "High — job application",
+    "repeat": "Ongoing if initial project succeeds",
+    "chinaFit": "very high",
+    "contactability": "High — Upwork application",
     "status": "CONTACT",
     "source": "Upwork",
     "url": "https://www.upwork.com/freelance-jobs/apply/China-Based-Product-Research-Sourcing-Agent-Focus-International-Opportunities_~022104866720299951136/"
@@ -37,6 +50,19 @@
     "status": "CONTACT",
     "source": "Reddit",
     "url": "https://www.reddit.com/r/1688/comments/1wawzyd/looking_for_a_reliable_1688_sourcing_agent_for/"
+  },
+  {
+    "score": 91,
+    "title": "Import products from China to UK for resale",
+    "buyer": "UK importer / reseller",
+    "category": "Multi-category import",
+    "budget": "$10–$50/hr sourcing engagement",
+    "repeat": "6+ month engagement",
+    "chinaFit": "very high",
+    "contactability": "High — Upwork application",
+    "status": "NEW",
+    "source": "Upwork",
+    "url": "https://www.upwork.com/freelance-jobs/apply/Sourcing-Agent-China_~022096882198009454936/"
   },
   {
     "score": 88,
