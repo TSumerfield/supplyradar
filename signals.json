@@ -1,5 +1,18 @@
 [
   {
+    "score": 100,
+    "title": "Example: custom branded product requirement",
+    "buyer": "Example UK buyer",
+    "category": "Custom products",
+    "budget": "£8k stated",
+    "repeat": "High",
+    "chinaFit": "very high",
+    "contactability": "High — direct buyer route",
+    "status": "NEW",
+    "source": "Example feed",
+    "url": "https://example.com/buyer-request-1"
+  },
+  {
     "score": 94,
     "title": "China product research + sourcing partner",
     "buyer": "UK entrepreneur",
