@@ -158,6 +158,8 @@ var FORM_ENDPOINT="https://formsubmit.co/ajax/8cdb272b4dea1a16e52a155228c1e7ef";
   try{sessionStorage.setItem(KEY,JSON.stringify(a))}catch(e){}
  }
  var started="";
+ var sending=false;
+ var pendingId="";
  var f=$("sr-form");
  function fill(){$("h_landing").value=a.landing;$("h_page").value=location.pathname;$("h_src").value=a.utm_source||(a.referrer?"referral:"+a.referrer:"direct");$("h_med").value=a.utm_medium;$("h_cmp").value=a.utm_campaign;$("h_term").value=a.utm_term;$("h_cnt").value=a.utm_content;$("h_ref").value=a.referrer;}
  fill();
@@ -168,7 +170,9 @@ var FORM_ENDPOINT="https://formsubmit.co/ajax/8cdb272b4dea1a16e52a155228c1e7ef";
   e.preventDefault();
   if($("botcheck").value){return}
   if(!f.checkValidity()){f.reportValidity();return}
-  var eid=id();$("h_enquiry_id").value=eid;$("h_sub").value=new Date().toISOString();
+  if(sending||pendingId){return}
+  sending=true;
+  var eid=id();pendingId=eid;$("h_enquiry_id").value=eid;$("h_sub").value=new Date().toISOString();
   var data={};Array.from(new FormData(f).entries()).forEach(function(kv){data[kv[0]]=kv[1]});delete data.botcheck;
   var lines=["SUPPLYRADAR SUPPLY CHECK BRIEF","Reference: "+eid,"","What is needed:",data.need,"","Quantity: "+data.quantity,"Estimated first order value: "+data.order_value,"Deadline: "+(data.deadline||"Not specified"),"Delivery country: "+data.country,"Current supplier/price/quote: "+(data.current_alternative||"Not specified"),"","Specification:",(data.specification||"Not specified"),"","Company: "+data.company,"Name: "+data.name,"Email: "+data.email,"","--- attribution (please leave) ---","landing_page: "+data.landing_page,"source: "+data.utm_source,"medium: "+data.utm_medium,"campaign: "+data.utm_campaign,"referrer: "+data.referrer,"form_started_at: "+data.form_started_at,"submitted_at: "+data.submitted_at];
   var text=lines.join("\n");
@@ -182,7 +186,7 @@ var FORM_ENDPOINT="https://formsubmit.co/ajax/8cdb272b4dea1a16e52a155228c1e7ef";
    var payload=Object.assign({_subject:"Supply Check brief "+eid+" - "+data.company,_template:"table",_captcha:"false",_honey:""},data);
    fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(payload)}).then(function(r){return r.json()}).then(function(j){
     if(j&&(j.success===true||j.success==="true")){show("Brief received","Your reference is <code>"+eid+"</code>. We have received your brief and will reply by email to confirm whether and how a Supply Check can help. Nothing is charged by sending a brief.")}else{throw new Error("fail")}
-   }).catch(function(){$("sr-submit").disabled=false;$("sr-submit").textContent="Send brief";viaMail()});
+   }).catch(function(){show("Submission status uncertain","Your reference is <code>"+eid+"</code>. We could not confirm whether the brief was received. To avoid a duplicate, please do not resubmit automatically. Email hello@supplyradar.co.uk quoting this reference to check receipt before sending the brief again.")});
   }else{viaMail()}
  });
 })();
